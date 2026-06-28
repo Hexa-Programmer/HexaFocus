@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HexaNotes</title>
+    <title>HexaFocus</title>
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
@@ -15,29 +15,94 @@
 <div id="loadingScreen">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
-    <h1>Welcome to HexaNotes</h1>
+    <h1>Welcome to HexaFocus</h1>
 </div>
 
 <div class="container" id="appContainer">
 
     <div class="sidebar">
         <div class="sidebar-header">
-            <h2>HexaNotes</h2>
-            <button class="new-btn" onclick="createNote()">New Note</button>
+            <h2>HexaFocus</h2>
+            <button class="new-btn" onclick="createNewSession()">New Session</button>
         </div>
-        <div id="notesList" class="notes-container"></div>
+        
+        <div id="sessionList" class="notes-container"></div>
+        
+        <div class="sidebar-stats">
+            <div class="stat">
+                <span class="stat-val" id="statStarted">0</span>
+                <span class="stat-label">Started</span>
+            </div>
+            <div class="stat">
+                <span class="stat-val" id="statAchieved">0</span>
+                <span class="stat-label">Goals Met</span>
+            </div>
+        </div>
     </div>
 
     <div class="editor">
         <div class="display-card">
+            
             <div class="editor-header">
-                <button class="back-btn" onclick="closeNote()">‹ Notes</button>
-                <button class="delete-btn" onclick="deleteNote()">Delete</button>
+                <button class="back-btn" onclick="closeSidebarMobile()">‹ History</button>
+                <button id="deleteSessionBtn" class="delete-btn hidden" onclick="deleteHistorySession()">Delete</button>
             </div>
 
-            <input id="noteTitle" placeholder="Title" />
+            <div id="setupView" class="view-panel active-view">
+                <h1 class="view-title">New Focus Session</h1>
+                <input id="sessionTitle" class="input-lg" placeholder="Session Title (Compulsory)" autocomplete="off" />
+                <textarea id="sessionDesc" class="input-md" placeholder="Description (Optional)" rows="1"></textarea>
+                <textarea id="sessionGoal" class="input-md" placeholder="Session Goal (Optional)" rows="1"></textarea>
+                
+                <button class="primary-btn" onclick="startSession()">Start Focus</button>
+                <p id="errorMsg" class="error-msg"></p>
+            </div>
 
-            <textarea id="noteBox" placeholder="Type something..."></textarea>
+            <div id="timerView" class="view-panel hidden">
+                <h2 id="activeSessionTitle" class="view-title">Focusing...</h2>
+                
+                <div class="timer-center-wrapper">
+                    <div class="timer-display" id="timerDisplay">00:00:00</div>
+                    
+                    <div class="quote-box">
+                        <p id="motivationalQuote">"Focus on the journey, not the destination."</p>
+                    </div>
+
+                    <div class="timer-controls">
+                        <button id="pauseBtn" class="secondary-btn" onclick="togglePause()">Pause Session</button>
+                        <button class="danger-btn" onclick="endSession()">End Session</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="feedbackView" class="view-panel hidden">
+                <h2 class="view-title">Session Complete!</h2>
+                <div class="summary-box">
+                    <p>Time Focused: <strong id="feedbackDuration"></strong></p>
+                </div>
+                
+                <div id="goalCheckContainer" class="goal-check">
+                    <p>Did you achieve your goal?</p>
+                    <p class="goal-text">"<span id="feedbackGoalText"></span>"</p>
+                    <div class="feedback-controls">
+                        <button class="success-btn" onclick="submitFeedback(true)">Yes</button>
+                        <button class="danger-btn" onclick="submitFeedback(false)">No</button>
+                    </div>
+                </div>
+                
+                <button id="continueBtn" class="primary-btn hidden" onclick="createNewSession()">Continue</button>
+            </div>
+
+            <div id="historyView" class="view-panel hidden">
+                <h2 id="historyTitle" class="view-title"></h2>
+                <div class="history-details">
+                    <div class="history-item"><strong>Description:</strong> <span id="historyDesc"></span></div>
+                    <div class="history-item"><strong>Duration:</strong> <span id="historyDuration"></span></div>
+                    <div class="history-item"><strong>Goal:</strong> <span id="historyGoal"></span></div>
+                    <div class="history-item"><strong>Goal Achieved:</strong> <span id="historyAchieved"></span></div>
+                </div>
+            </div>
+
         </div>
     </div>
 
