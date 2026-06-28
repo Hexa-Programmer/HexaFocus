@@ -31,7 +31,7 @@
         <div class="sidebar-stats">
             <div class="stat">
                 <span class="stat-val" id="statStarted">0</span>
-                <span class="stat-label">Started</span>
+                <span class="stat-label">Sessions</span>
             </div>
             <div class="stat">
                 <span class="stat-val" id="statAchieved">0</span>
@@ -50,7 +50,7 @@
 
             <div id="setupView" class="view-panel active-view">
                 <h1 class="view-title">New Focus Session</h1>
-                <input id="sessionTitle" class="input-lg" placeholder="Session Title (Compulsory)" autocomplete="off" />
+                <input id="sessionTitle" class="input-lg" placeholder="Session Title*" autocomplete="off" />
                 <textarea id="sessionDesc" class="input-md" placeholder="Description (Optional)" rows="1"></textarea>
                 <textarea id="sessionGoal" class="input-md" placeholder="Session Goal (Optional)" rows="1"></textarea>
                 
@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 
-                <button id="continueBtn" class="primary-btn hidden" onclick="createNewSession()">Continue</button>
+                <button id="continueBtn" class="primary-btn hidden" onclick="continueToHistory()">Continue</button>
             </div>
 
             <div id="historyView" class="view-panel hidden">
