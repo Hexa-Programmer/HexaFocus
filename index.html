@@ -1,0 +1,47 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HexaNotes</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<div id="loadingScreen">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <h1>Welcome to HexaNotes</h1>
+</div>
+
+<div class="container" id="appContainer">
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>HexaNotes</h2>
+            <button class="new-btn" onclick="createNote()">New Note</button>
+        </div>
+        <div id="notesList" class="notes-container"></div>
+    </div>
+
+    <div class="editor">
+        <div class="display-card">
+            <div class="editor-header">
+                <button class="back-btn" onclick="closeNote()">‹ Notes</button>
+                <button class="delete-btn" onclick="deleteNote()">Delete</button>
+            </div>
+
+            <input id="noteTitle" placeholder="Title" />
+
+            <textarea id="noteBox" placeholder="Type something..."></textarea>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
