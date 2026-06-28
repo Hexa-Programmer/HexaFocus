@@ -10,6 +10,7 @@ const sessionList = document.getElementById("sessionList");
 const appContainer = document.getElementById("appContainer");
 const errorMsg = document.getElementById("errorMsg");
 const deleteSessionBtn = document.getElementById("deleteSessionBtn");
+const mobileBackBtn = document.getElementById("mobileBackBtn");
 
 const statStarted = document.getElementById("statStarted");
 const statAchieved = document.getElementById("statAchieved");
@@ -49,6 +50,12 @@ function showView(viewElement) {
     });
     viewElement.classList.remove('hidden');
     viewElement.classList.add('active-view');
+
+    if (viewElement === timerView || viewElement === setupView) {
+        mobileBackBtn.classList.add('hidden');
+    } else {
+        mobileBackBtn.classList.remove('hidden');
+    }
 }
 
 function formatTime(totalSeconds) {

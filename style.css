@@ -207,7 +207,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: -60px; /* Slight offset to perfectly center within the visual card space */
+    margin-top: -60px;
 }
 
 @keyframes pulseGlow {
