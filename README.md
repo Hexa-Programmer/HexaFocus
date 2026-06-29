@@ -1,11 +1,9 @@
 # HexaFocus
 
 View HexaFocus at: https://hexa-programmer.github.io/HexaFocus/
-
-![HexaFocus Gameplay](showcase.png)
-
 HexaFocus is a minimal focus timer and session tracker built using HTML, CSS, and JavaScript.  
 It runs entirely in the browser with no backend and uses localStorage for persistence.
+![HexaFocus Gameplay](showcase.png)
 
 ---
 
